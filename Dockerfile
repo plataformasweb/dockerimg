@@ -7,13 +7,14 @@ EXPOSE 8080/tcp
 EXPOSE 8443/tcp
 
 EXPOSE 8778/tcp
+ADD run /usr/local/s2i/run
+RUN chmod 755 /usr/local/s2i/run
 USER 185
 WORKDIR /home/jboss
 
 # Instalamos Wily
 RUN curl -k -SL https://spacewalk.sis.ad.bia.itau/pub/wily-10.7.0.97.tgz \
     | tar -xzC / 
-ADD run /usr/local/s2i/run
-RUN chmod 755 /usr/local/s2i/run
+
 CMD ["/usr/local/s2i/run"]
 
