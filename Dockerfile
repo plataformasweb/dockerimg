@@ -14,6 +14,6 @@ WORKDIR /home/jboss
 RUN curl -k -SL https://spacewalk.sis.ad.bia.itau/pub/wily-10.7.0.97.tgz \
     | tar -xzC / 
 ADD run /usr/local/s2i/run
-RUN chmod 777 /usr/local/s2i/run
+RUN chmod 755 /usr/local/s2i/run
 CMD ["/usr/local/s2i/run"]
 
